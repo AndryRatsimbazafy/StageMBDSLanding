@@ -1,0 +1,195 @@
+.header {
+
+  .pages {
+    a {
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      border: none;
+    }
+    a:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 0;
+      position: absolute;
+      background: #C2212F;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+    a:hover {
+      background-color: #ffffff;
+      border: none;
+    }
+    a:hover:after {
+      width: 100%;
+      right: 100%;
+      left: 0;
+
+    }
+  }
+
+}
+
+
+.video-container {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: calc(100vh - 125.55px);
+  overflow: hidden;
+
+
+
+  #video-bg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.container-body {
+  height: calc(100vh - 280px);
+  .container-fluid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .row {
+      justify-content: center;
+      margin-left: 10%;
+
+      .caption {
+        box-shadow: 7px 4px 12px -1px rgb(0 0 0 / 30%);
+        padding: 47px 60px;
+        position: relative;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 15px;
+        .caption-date {
+          font-size: 2rem;
+        }
+        .btn-primary:hover {
+          background-color: #ffffff;
+          border-color: #ffffff;
+          color: #000;
+        }
+        .caption-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #000;
+          opacity: .3;
+        }
+
+        .caption-info h3 {
+          font-size: 2.5rem;
+          font-family: 'forte';
+        }
+
+        .caption-btn {
+          position: relative;
+          max-width: 200px;
+          i {
+            position: absolute;
+            color: white;
+            font-size: 75px;
+            top: -185%;
+            left: -45%;
+            transition: all .5s ease-in-out;
+          }
+        }
+      }
+
+    }
+
+
+  }
+}
+
+.modal-body {
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.customModal .modal-dialog {
+  max-width: 565px;
+}
+
+
+@media (max-width: 767.98px) {
+  .container-body {
+      height: calc(100vh - 120px);
+
+      .container-fluid {
+        .row {
+          .caption {
+            padding: 20px 17px;
+            align-items: center;
+
+            .caption-btn {
+              i {
+                position: absolute;
+                font-size: 60px;
+                top: -138%;
+                left: -44%;
+              }
+            }
+          }
+        }
+      }
+  }
+}
+
+
+
+@media (max-width: 575.98px) {
+  .video-container {
+    height: calc(100vh - 70px);
+  }
+  .header {
+    button {
+      font-size: 13px;
+    }
+  }
+  .container-body {
+      height: calc(100vh - 70px);
+      // background: url('../../assets/images/hall.jpg');
+      background-size: cover;
+      background-position: center center;
+
+      .container-fluid {
+        .row {
+          margin: 0;
+          .caption {
+            padding: 25px 10px;
+            align-items: center;
+
+            .caption-date {
+              font-size: 1.7rem;
+            }
+
+            .caption-info h3 {
+              font-size: 1.8rem;
+              font-family: 'forte';
+            }
+
+            .caption-btn {
+              i {
+               display: none;
+              }
+            }
+          }
+          // #video-bg {
+          //   display: none;
+          // }
+        }
+      }
+  }
+}
+
+

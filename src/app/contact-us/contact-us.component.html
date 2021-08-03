@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="contactFormGroup" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nom" class="required">Nom</label>
+        <input type="text" formControlName="nom" class="form form-control" name="nom">
+        <div *ngIf="checkError('nom', 'required')" class="error-msg">Ce champ est obligatoir</div>
+      </div>
+      <div class="form-group">
+        <label for="prenom" class="required">Prénom</label>
+        <input type="text" formControlName="prenom" class="form form-control" name="prenom">
+        <div *ngIf="checkError('prenom', 'required')" class="error-msg">Ce champ est obligatoire</div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="required">Email</label>
+        <input type="email" formControlName="email" class="form form-control" name="email">
+        <div *ngIf="checkError('email', 'required')" class="error-msg">Ce champ est obligatoire</div>
+        <div *ngIf="checkError('email', 'email')" class="error-msg">Veuillez entrer une adresse email valide</div>
+      </div>
+
+      <div class="form-group">
+        <label for="projets" class="required">Vous êtes </label>
+        <div class="ml-4">
+          <div class="form-check">
+            <input class="form-check-input" value="Visiteur" formControlName="role" type="radio" name="role">
+            <label class="form-check-label" for="Visiteur">
+              Visiteur
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" value="Exposant" formControlName="role" type="radio" name="role">
+            <label class="form-check-label" for="Exposant">
+              Exposant
+            </label>
+          </div>
+          <div *ngIf="checkError('role', 'required')" class="error-msg">Ce champ est obligatoire</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="body" class="required">Votre message</label>
+        <textarea class="form form-control" formControlName="message" name="message" cols="30" rows="6"></textarea>
+        <div *ngIf="checkError('message', 'required')" class="error-msg">Ce champ est obligatoire</div>
+      </div>
+
+      <p>* Champs obligatoires</p>
+      <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="alert alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+      <div class="form-row">
+        <div class="form-group col-12 text-right">
+          <button *ngIf="!isSending" type="submit" class="btn btn-primary"><i class="bi bi-cursor-fill"></i> Envoyer</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="isSending" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>

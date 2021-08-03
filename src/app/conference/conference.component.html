@@ -1,0 +1,29 @@
+<p>
+  A l’occasion du Salon de la Rénovation, la rédaction de Maison&Travaux accompagnée d’experts vous apporteront des conseils et solutions lors de conférences en ligne, 100% gratuites.
+
+Afin de participer à ces conférences, il vous suffit de vous connecter au Salon de la Rénovation.
+</p>
+
+<p>
+
+Les conférences se tiendront en live et seront ensuite accessibles en rediffusion de la plateforme du salon.
+
+</p>
+
+<h2 class="my-4">
+  PLANNING DES CONFERENCES
+</h2>
+
+<ng-template ngFor let-conf [ngForOf]="conferenceList" >
+  <div class="my-4">
+    <h3>
+      {{conf.title}}
+    </h3>
+    <div>
+      {{conf.content}}
+    </div>
+  </div>
+</ng-template>
+
+
+

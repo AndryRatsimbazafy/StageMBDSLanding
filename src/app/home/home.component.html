@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="header col-6 col-sm-9 col-md-10 offset-1 d-flex justify-content-between">
+      <img src="assets/images/logo.png" alt="" class="img-fluid " width="250">
+      <!-- <div class="pages d-flex align-items-center">
+        <a class="mx-2 btn btn-page" (click)="openModal(templateCoaching)">Coaching</a>
+        <a class="mx-2 btn btn-page" (click)="openModal(templateConference,'xl')" >Conférences</a>
+      </div> -->
+      <div class="d-flex align-items-center">
+        <button class="btn btn-primary" (click)="openModal(template)">Nous contacter</button>
+      </div>
+    </div>
+  </div>
+  <div  class="row position-relative container-body">
+    <div ngxUiLoaderBlurred blur="10" class="container-fluid">
+     <div class="row justify-content-start">
+       <div class="caption mt-5 d-flex flex-column">
+         <!-- <div class="caption-overlay"></div> -->
+         <div class="mb-3">
+           <h1 class="caption-date text-white"> Le salon 100% virtuel est reporté<br>du <span class="bg-white px-2 rounded text-dark"> <b>12</b> au <b>21 Mai 2021</b></span></h1>
+           <h4 class="text-white">
+              Horaires d'ouverture de 10h à 19h
+           </h4>
+         </div>
+         <div class="caption-info my-4 text-white">
+           <h3 class="mb-0">Retrouvez des produits et</h3>
+           <h3>conseils pour vos travaux</h3>
+         </div>
+         <p class="caption-cta text-white">Pour participer, inscrivez vous gratuitement !</p>
+         <div class="d-flex">
+          <button class="caption-btn mt-2 mt-sm-5 btn btn-primary p-3" (click)="openModal(templateSalon)">
+            <i class="bi bi-arrow-down-right"></i>
+            S'inscrire
+           </button>
+           <!-- <button (click)="redirect()" class="caption-btn mx-4 mt-2 mt-sm-5 btn btn-primary p-3">
+            Visiter le salon
+           </button> -->
+         </div>
+
+       </div>
+     </div>
+    </div>
+    <div class="video-container">
+      <div id="video-overlay"></div>
+      <video (load)="onLoad()"  oncanplay="this.play()" onloadedmetadata="this.muted = true" id="video-bg" autoplay muted loop poster="assets/images/hall.jpg"  width="100%" #videoPlayer>
+        <source src="assets/video-salon.mp4" >
+      </video>
+    </div>
+  </div>
+</div>
+
+
+<!-- contact modal -->
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">
+      <img src="assets/images/logo.png" alt="" class="img-fluid ml-auto mr-auto" width="250">
+    </h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-contact-us></app-contact-us>
+  </div>
+</ng-template>
+
+
+<!-- register modal -->
+<ng-template #templateSalon>
+  <div class="modal-header ">
+    <h4 class="modal-title pull-left">
+      <img src="assets/images/logo.png" alt="" class="img-fluid ml-auto mr-auto" width="250">
+    </h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-visite-salon></app-visite-salon>
+  </div>
+</ng-template>
+
+<!-- coaching modal -->
+<ng-template #templateCoaching>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">
+      <img src="assets/images/logo.png" alt="" class="img-fluid ml-auto mr-auto" width="250">
+    </h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-coaching></app-coaching>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeAndregister(templateSalon)">
+      M’inscrire au salon
+    </button>
+  </div>
+</ng-template>
+
+
+<!-- conference modal -->
+<ng-template #templateConference>
+  <div class="modal-header ">
+    <h4 class="modal-title pull-left">
+      <img src="assets/images/logo.png" alt="" class="img-fluid ml-auto mr-auto" width="250">
+    </h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body col-12">
+    <app-conference></app-conference>
+  </div>
+</ng-template>

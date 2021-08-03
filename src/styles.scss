@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~font-awesome/css/font-awesome.css";
+
+$primary-color:  #cb3a5f;
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Crimson Text', serif;
+}
+
+label.required {
+  &:after {
+    content: '*';
+    margin-left: .2em;
+    color: red;
+  }
+}
+
+.btn:hover, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn-outline-primary {
+  border-color: $primary-color !important;
+  color: $primary-color !important;
+  &:hover {
+    background-color: $primary-color !important;
+    color: white !important;
+  }
+}
+
+.modal-lg {
+  max-width: 905px;
+}
